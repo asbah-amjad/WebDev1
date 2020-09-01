@@ -23,10 +23,10 @@ MONGO_INSTALLED=$(dpkg-query -W --showformat='${Status}\n' $MONGO | grep "hold o
 echo "Checking for $MONGO: $MONGO_INSTALLED"
 if [ "" == "$MONGO_INSTALLED" ]; then
   wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-  echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
   apt-get update
   sudo apt-get install -y mongodb-org=4.4.0 mongodb-org-server=4.4.0 mongodb-org-shell=4.4.0 mongodb-org-mongos=4.4.0 mongodb-org-tools=4.4.0
-
+  
   echo "mongodb-org hold" | sudo dpkg --set-selections
   echo "mongodb-org-server hold" | sudo dpkg --set-selections
   echo "mongodb-org-shell hold" | sudo dpkg --set-selections
