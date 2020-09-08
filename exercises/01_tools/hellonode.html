@@ -120,15 +120,15 @@ found 0 vulnerabilities
         and under it, there exists the newly created sub-dir <code>lodash</code>:</p>
     <pre>
     .
-    ├── exercises/
-    │   └── 01_tools
-    │       ├── hellonode.js
-    │       ├── package.json
-    │       ├── node_modules/
-    │       │   └── lodash
-    │       │       ├── add.js
-    │       └── ...          
-    └── .gitignore
+    └── exercises/
+        └── 01_tools
+            ├── hellonode.js
+            ├── package.json
+            ├── node_modules/
+            │   └── lodash
+            │       ├── add.js
+            └── ...          
+            └── .gitignore
     </pre>
 
     <p>Let us examine lodash more closely:</p>
@@ -218,7 +218,7 @@ console.log(ver);
 
     </p>
     <p>hellonode.js must also define an a function <code>hellonode(array)</code>.
-        The function simply prints the first and the last item of an array
+        The function simply returns the first and the last item of an array
         concatenated as one string with the help of <code>first()</code> and <code>last()</code>
         functions of lodash; remember, that these lodash methods have to be called with
         an appropriate dot notation.
