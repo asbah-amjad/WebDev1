@@ -13,9 +13,9 @@ var server = http
         res.write(data);
         return res.end();
       });
-    } else if ((acp = "application/xml")) {
+    } else if ((acp = "application/xml,text/xml")) {
       fs.readFile("data.xml", "utf8", function (err, data) {
-        res.writeHead(200, { "Content-Type": "application/xml" });
+        res.writeHead(200, { "Content-Type": "application/xml,text/xml" });
         res.write(data);
         return res.end();
       });
