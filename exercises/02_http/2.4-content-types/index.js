@@ -34,6 +34,7 @@ var server = http
     } else {
       res.statusCode = 406;
       res.statusMessage = "Content type not available";
+      return res.end();
     }
   })
   .listen(3000);
