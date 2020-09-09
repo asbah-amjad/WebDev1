@@ -7,25 +7,25 @@ var server = http
     var acp = req.headers["accept"];
     console.log(acp);
 
-    if ((acp = "application/json")) {
+    if (acp == "application/json") {
       fs.readFile("data.json", "utf8", function (err, data) {
         res.writeHead(200, { "Content-Type": "application/json" });
         res.write(data);
         return res.end();
       });
-    } else if ((acp = "application/xml,text/xml")) {
+    } else if (acp == "application/xml,text/xml") {
       fs.readFile("data.xml", "utf8", function (err, data) {
         res.writeHead(200, { "Content-Type": "application/xml,text/xml" });
         res.write(data);
         return res.end();
       });
-    } else if ((acp = "text/plain")) {
+    } else if (acp == "text/plain") {
       fs.readFile("data.txt", "utf8", function (err, data) {
         res.writeHead(200, { "Content-Type": "text/plain" });
         res.write(data);
         return res.end();
       });
-    } else if ((acp = "*/*")) {
+    } else if (acp == "*/*") {
       fs.readFile("data.txt", "utf8", function (err, data) {
         res.writeHead(200, { "Content-Type": "text/plain" });
         res.write(data);
