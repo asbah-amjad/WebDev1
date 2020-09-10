@@ -66,7 +66,8 @@ describe("Going through the routes", () => {
           // c) the text of the response is equal to index.html
           res.should.have.status(200);
           //res.statusCode.should.equal(200);
-          // res.text.should.be.a("text/html");
+          //res.body.should.be.a("text/html");
+          res.should.be.html;
           res.text.should.be.eql(index);
           done();
         });
@@ -94,6 +95,7 @@ describe("Going through the routes", () => {
           // b) that the response is in HTML form
           // c) the text of the response is equal to homer.html
           res.should.have.status(200);
+          res.should.be.html;
           // res.text.should.be.a("text/html");
           res.text.should.be.eql(homer);
           done();
@@ -121,6 +123,7 @@ describe("Going through the routes", () => {
           // b) that the response is in HTML form
           // c) the text of the response is equal to bradbury.html
           res.should.have.status(200);
+          res.should.be.html;
           // res.text.should.be.a("text/html");
           res.text.should.be.eql(bradbury);
           done();
