@@ -54,7 +54,8 @@ describe("Going through the routes", () => {
     // As the result the status of the test should go from 'pending' to 'passing'
     // Even thou just leaving the function inside <em>end</em> method will pass,
     //  you must write the tests as described in the TODO inside the end method.
-    it("it should GET the index.html", (done) => { // TODO uncomment the needed parts
+    it("it should GET the index.html", (done) => {
+      // TODO uncomment the needed parts
       chai
         .request(server)
         .get("/")
@@ -65,7 +66,7 @@ describe("Going through the routes", () => {
           // c) the text of the response is equal to index.html
           res.should.have.status(200);
           //res.statusCode.should.equal(200);
-          res.body.should.be.a("text/html");
+          res.text.should.be.a("text/html");
           res.text.should.be.eql(index);
           done();
         });
@@ -82,7 +83,8 @@ describe("Going through the routes", () => {
     // As the result the status of the test should go from 'pending' to 'passing'
     // Even thou just leaving the function inside <em>end</em> method will pass,
     //  you must write the tests as described in the TODO inside the end method.
-    it("it should GET the homer.html", (done) => { // TODO uncomment the needed parts
+    it("it should GET the homer.html", (done) => {
+      // TODO uncomment the needed parts
       chai
         .request(server)
         .get("/classical")
@@ -92,7 +94,7 @@ describe("Going through the routes", () => {
           // b) that the response is in HTML form
           // c) the text of the response is equal to homer.html
           res.should.have.status(200);
-          res.body.should.be.a("text/html");
+          res.text.should.be.a("text/html");
           res.text.should.be.eql(homer);
           done();
         });
@@ -119,7 +121,7 @@ describe("Going through the routes", () => {
           // b) that the response is in HTML form
           // c) the text of the response is equal to bradbury.html
           res.should.have.status(200);
-          res.body.should.be.a("text/html");
+          res.text.should.be.a("text/html");
           res.text.should.be.eql(bradbury);
           done();
         });
