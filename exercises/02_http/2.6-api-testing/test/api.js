@@ -36,9 +36,10 @@ describe("Going through the routes", () => {
             // TODO: using the should style check that
             // a) the response's HTTP response status is 404, and
             // b) that the response body is empty
+
             res.should.have.status(404);
             // res.statusCode.should.equal(404);
-            res.body.should.equal(" ");
+            res.body.length.should.be.eql(0);
             done();
           });
       };
@@ -67,8 +68,8 @@ describe("Going through the routes", () => {
             // c) the text of the response is equal to index.html
             res.should.have.status(200);
             //res.statusCode.should.equal(200);
-
-            res.body.should.equal("/");
+            res.body.should.be.a("text/html");
+            res.body.should.equal("index.html");
             done();
           });
       };
@@ -96,8 +97,8 @@ describe("Going through the routes", () => {
             // b) that the response is in HTML form
             // c) the text of the response is equal to homer.html
             res.should.have.status(200);
-
-            res.body.should.equal("/classical");
+            res.body.should.be.a("text/html");
+            res.body.should.equal("homer.html");
             done();
           });
       };
@@ -124,8 +125,8 @@ describe("Going through the routes", () => {
             // b) that the response is in HTML form
             // c) the text of the response is equal to bradbury.html
             res.should.have.status(200);
-
-            res.body.should.equal("/modern");
+            res.body.should.be.a("text/html");
+            res.body.should.equal("bradbury.html");
             done();
           });
       };
