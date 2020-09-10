@@ -69,7 +69,7 @@ describe("Going through the routes", () => {
             res.should.have.status(200);
             //res.statusCode.should.equal(200);
             res.body.should.be.a("text/html");
-            res.body.should.equal("index.html");
+            res.body.should.equal(index);
             done();
           });
       };
@@ -98,7 +98,7 @@ describe("Going through the routes", () => {
             // c) the text of the response is equal to homer.html
             res.should.have.status(200);
             res.body.should.be.a("text/html");
-            res.body.should.equal("homer.html");
+            res.body.should.equal(homer);
             done();
           });
       };
@@ -126,7 +126,7 @@ describe("Going through the routes", () => {
             // c) the text of the response is equal to bradbury.html
             res.should.have.status(200);
             res.body.should.be.a("text/html");
-            res.body.should.equal("bradbury.html");
+            res.body.should.equal(bradbury);
             done();
           });
       };
