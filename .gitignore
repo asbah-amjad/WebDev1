@@ -120,3 +120,15 @@ dist
 
 # vagrant
 .vagrant/
+
+# audio and video files
+*.mp3
+*.mp4
+*.wav
+*.avi
+*.wmv
+*.wma
+*.ogg
+*.flac
+*.mkv
+
