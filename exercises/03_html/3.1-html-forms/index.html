@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>HTML Form</title>
+    <title>3.1 HTML Forms</title>
   </head>
   <body>
     <h1>3.1 HTML Forms</h1>
@@ -10,13 +10,18 @@
     <form id="form1" method="GET" action="http://localhost:3000/">
       <input type="hidden" name="hidden" value="Hello from form1" />
       <input type="text" name="text" required />
-      <input type="button" value="Send Form 1" />
+      <button type="submit" form="form1" value="Send Form 1">
+        Send Form 1
+      </button>
     </form>
+
     <h2>Form 2</h2>
     <form id="form2" method="POST" action="http://localhost:3000/">
       <input type="hidden" name="hidden" value="Hello from form2" />
       <textarea rows="15" cols="35" name="message" form="form2"></textarea>
-      <input type="button" value="Send Form 2" />
+      <button type="submit" form="form2" value="Send Form 2">
+        Send Form 2
+      </button>
     </form>
   </body>
 </html>
