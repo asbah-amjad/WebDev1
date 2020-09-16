@@ -3,13 +3,13 @@ var fs = require("fs");
 
 var server = http
   .createServer(function (req, res) {
-    if (http.request("GET")) {
+    if (req.method === "GET") {
       fs.readFile("get.html", "utf8", function (err, data) {
         res.writeHead(200, { "Content-Type": "text/html" });
         res.write(data);
         return res.end();
       });
-    } else if (http.request("POST")) {
+    } else if (req.method === "POST") {
       fs.readFile("post.html", "utf8", function (err, data) {
         res.writeHead(200, { "Content-Type": "text/html" });
         res.write(data);
