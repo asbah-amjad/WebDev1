@@ -1,7 +1,7 @@
 const contacts = document.getElementById("contacts");
 var template = document.querySelector("#contact-template");
 const form = document.querySelector("form");
-var name = document.getElementById("input-name");
+var formName = document.getElementById("input-name");
 var email = document.getElementById("input-email");
 var homepage = document.getElementById("input-homepage");
 
@@ -13,7 +13,7 @@ form.addEventListener("submit", function (event) {
   let p1 = clone.querySelector("p.email");
   let p2 = clone.querySelector("p.homepage > a");
   //content replacement
-  h2.innerText = name.value;
+  h2.innerText = formName.value;
   p1.textContent = email.value;
   p2.href = homepage.value;
   p2.textContent = homepage.value;
