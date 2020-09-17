@@ -3,9 +3,9 @@ element1.classList.add("list");
 
 var li = document.createElement("li");
 var a = document.createElement("a");
-li.appendChild(a);
 a.href = "http://localhost:3000/";
 a.text = "Localhost inside";
+li.appendChild(a);
 element1.appendChild(li);
 
 var li1 = document.createElement("li");
