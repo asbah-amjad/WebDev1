@@ -132,3 +132,6 @@ dist
 *.flac
 *.mkv
 
+# solution files
+solution.*
+solution?.*
