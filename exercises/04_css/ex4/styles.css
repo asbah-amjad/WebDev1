@@ -1,8 +1,7 @@
-*{
+* {
   margin: 0;
   border-collapse: collapse;
   box-sizing: border-box;
-
 }
 
 body {
@@ -15,12 +14,12 @@ body:hover {
   width: 10%;
 }
 
-
 header {
   display: grid;
   width: 100%;
   min-height: 15%;
   /* TODO: needed grid stuff */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 section {
@@ -34,14 +33,15 @@ article {
   display: grid;
   font-size: 1.5em;
   /* TODO: needed grid stuff */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
-
 
 footer {
   display: grid;
   width: 100%;
   min-height: 15%;
   /* TODO: needed grid stuff */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 nav {
