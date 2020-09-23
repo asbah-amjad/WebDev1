@@ -85,7 +85,8 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-  body {
+  article,
+  footer {
     display: grid;
     grid-template-areas:
       "s1"
@@ -99,7 +100,8 @@ footer {
 }
 
 @media only screen and (min-width: 600px) {
-  body {
+  article,
+  footer {
     display: grid;
     grid-template-areas:
       "s1 s2"
@@ -110,7 +112,8 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
-  body {
+  article,
+  footer {
     display: grid;
     grid-template-areas:
       "s1 s2 s3"
