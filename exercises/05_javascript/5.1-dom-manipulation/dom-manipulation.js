@@ -6,6 +6,24 @@
  */
 function sortTableByColumn(col, table) {
   // TODO: Implement this function
+  var i, switching;
+  var rows = table.rows,
+    rlen = rows.length;
+  var arr = new Array();
+
+  for (i = 1; i < rlen - 1; i++) {
+    //cells = rows[i].cells;
+    // clen = cells.length;
+    arr[i] = new Array();
+  }
+  arr.sort(function (a, b) {
+    if (a.localeCompare(b) > 0) switching = true;
+  });
+  for (i = 1; i < rlen - 1; i++) {
+    if (switching) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+    }
+  }
 }
 
 /**
@@ -19,11 +37,11 @@ function sortTableByColumn(col, table) {
  */
 
 // find the table element
-const table = document.getElementById('sortable');
+const table = document.getElementById("sortable");
 
 // attach an event listener to each th element's click event
-table.querySelectorAll('thead th').forEach((th, i) =>
-  th.addEventListener('click', () => {
+table.querySelectorAll("thead th").forEach((th, i) =>
+  th.addEventListener("click", () => {
     sortTableByColumn(i, table);
   })
 );
