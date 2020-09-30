@@ -4,8 +4,9 @@ for (let li of document.querySelectorAll("li")) {
   //get the descendants count
 
   let count = li.getElementsByTagName("li").length;
-  li.innerHTML += "(" + count + ")";
-  //li.firstElementChild.innerHTML += "(" + count + ")";
-}
+  let y = "(" + count + ")";
 
-//document.getElementsByTagName("li").childElementCount
+  if (count > 0) {
+    li.firstChild.textContent += y;
+  }
+}
