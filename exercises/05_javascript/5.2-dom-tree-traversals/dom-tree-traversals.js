@@ -3,6 +3,6 @@ for (let li of document.querySelectorAll("li")) {
   //get the descendants count
 
   let count = li.getElementsByTagName("li").length;
-  li.innerHTML += count;
+  li.innerHTML += "(" + count + ")";
 }
 //document.getElementsByTagName("li").childElementCount
