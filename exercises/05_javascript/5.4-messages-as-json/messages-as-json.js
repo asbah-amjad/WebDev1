@@ -28,6 +28,7 @@ document.addEventListener("userDataReady", function (e) {
       obj[i].address.zipCode + " " + obj[i].address.city;
     country.textContent = obj[i].address.country;
     homepage.href = obj[i].homepage;
+    homepage.textContent = obj[i].homepage;
 
     //append
     contacts.appendChild(clone);
