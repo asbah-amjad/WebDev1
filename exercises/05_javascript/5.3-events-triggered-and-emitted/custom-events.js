@@ -15,7 +15,7 @@ var sixes = document.querySelector("#sixes > p");
 var totals = document.querySelector("#totals > p > span");
 //button to update
 var roll_button = document.getElementById("roll-button");
-var buttonValue = document.querySelector("#roll-button > span");
+//var buttonValue = document.querySelector("#roll-button > span");
 //button template
 var template1 = document.getElementById("template1").innerHTML;
 var template2 = document.getElementById("template2").innerHTML;
@@ -33,27 +33,27 @@ roll_button.addEventListener("click", function () {
 document.addEventListener("rollDice", function (e) {
   var value = e.detail.value;
   if (value === 1) {
-    buttonValue.innerHTML = template1;
+    roll_button.innerHTML = template1;
     roll1++;
   }
   if (value === 2) {
-    buttonValue.innerHTML = template2;
+    roll_button.innerHTML = template2;
     roll2++;
   }
   if (value === 3) {
-    buttonValue.innerHTML = template3;
+    roll_button.innerHTML = template3;
     roll3++;
   }
   if (value === 4) {
-    buttonValue.innerHTML = template4;
+    roll_button.innerHTML = template4;
     roll4++;
   }
   if (value === 5) {
-    buttonValue.innerHTML = template5;
+    roll_button.innerHTML = template5;
     roll5++;
   }
   if (value === 6) {
-    buttonValue.innerHTML = template6;
+    roll_button.innerHTML = template6;
     roll6++;
   }
   total++;
