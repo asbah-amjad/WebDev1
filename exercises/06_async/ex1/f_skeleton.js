@@ -5,8 +5,15 @@
  * be of format 'Parameter is not a number!'
  */
 const f = (value) => {
-  throw "Not yet implemented!";
-}
+  return new Promise(function (resolve) {
+    if (isNaN(value)) {
+      throw "Parameter is not a number!";
+    } else {
+      resolve(value);
+    }
+  });
+  // throw "Not yet implemented!";
+};
 
 /**
  * TODO: Implement a function 'g' that calls the previously made function 'f'.
@@ -14,22 +21,37 @@ const f = (value) => {
  * Handle exceptions gracefully by returning the thrown error message.
  * @param {number} value
  */
-const g = (value) => {
-  throw "Not yet implemented!";
+async function g(value) {
+  let a = f(value);
+  let result = await a;
+  return Math.log(result);
 }
-
+/*
+const g = (value) => {
+  f(value);
+  return Math.log(f(value));
+  //throw "Not yet implemented!";
+};
+*/
 /**
  * TODO: Implement a function 'checkIfFunction'.
  * The function checks the type of a parameter.
  * However, since we are now practicing
  * Promises, the value is returned as a "promisified" value
  * @param {*} param the value is checked to be a function
- * @returns resolved Promise with value true if parameter is a function or 
+ * @returns resolved Promise with value true if parameter is a function or
  * a rejected Promise with message "Not a function!" otherwise
  */
 const checkIfFunction = (param) => {
-  throw "Not yet implemented!";
-}
+  return new Promise(function (resolve, reject) {
+    if (param instanceof Function) {
+      resolve(true);
+    } else {
+      reject("Not a function!");
+    }
+  });
+  //throw "Not yet implemented!";
+};
 
 /**
  * TODO: Implement a function 'p' that returns a resolved Promise after a given time.
@@ -39,7 +61,16 @@ const checkIfFunction = (param) => {
  * @returns {an empty Promise after a given time}, if time is acceptable
  */
 const p = (time) => {
-  throw "Not yet implemented!";
+  return new Promise(function (resolve, reject) {
+    if (time > 2000) {
+      reject("Too long time!");
+    } else if (isNaN(time)) {
+      reject("Not a number!");
+    } else {
+      resolve();
+    }
+  });
+  //throw "Not yet implemented!";
 };
 
 //TODO: Verify that all functions are exported for tests
