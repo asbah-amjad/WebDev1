@@ -18,7 +18,7 @@
     "svgdom": "^0.1.8"
   },
   "scripts": {
-    "test": "cd ex3;echo 'Now: ex3'; mocha --timeout 3000; cd ../ex4;echo 'Now: ex4'; mocha --timeout 3000; cd ../ex5; echo 'Now ex5'; mocha --timeout 3000;"
+    "test": "cd ex3&&echo 'Now: ex3'&& mocha --timeout 3000&& cd ../ex4&&echo 'Now: ex4'&& mocha --timeout 3000&& cd ../ex5&& echo 'Now ex5'&& mocha --timeout 3000"
   },
   "author": "",
   "license": "ISC"
