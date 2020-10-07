@@ -1,22 +1,18 @@
-
-
 /**
  * TODO: write recursive function drawArrows that uses drawArrow in ../misc/draw.js
  * The first sentence should contain a termination condition that is bound to the
  * number of actors
- * 
- * @param {*} actors the array of actors, these label the vertical lines in the sequence diagram 
+ *
+ * @param {*} actors the array of actors, these label the vertical lines in the sequence diagram
  * @param {*} timeout time for setTimeout.
  * @param {*} drawArrow a callback function that is passed as a parameter for drawArrows (but not for setTimeout)
  * It draws only one arrow, the f expression must be 'drawArrow'
  * @param {*} i the index, the nth arrow to be drawn, note that the sequence has to return from destination back to the source
  */
 const drawArrows = (actors, timeout, drawArrow, i = 0) => {
-}
-
-
-
-
+  if (i == actors.length) return;
+  setTimeout(() => drawArrows(actors, timeout, drawArrow, ++i), timeout);
+};
 
 /**
  * DO NOT TOUCH THIS: drawArrowSync is the utility function for sync.test.js
@@ -26,22 +22,23 @@ const drawArrows = (actors, timeout, drawArrow, i = 0) => {
  * @param {*} drawArrow a callback to draw an arrow
  */
 const drawArrowsSync = (actors, drawArrow) => {
-    actors.forEach((actor, index)=>drawArrow(index, -1, actors.length - 1));
-}
-
-
+  actors.forEach((actor, index) => drawArrow(index, -1, actors.length - 1));
+};
 
 /**
  * DO NOT TOUCH: Draws all, both actors and arrows, this function is for a browser use.
  * Makes UML seq diagram based on actors
- * @param {*} actors 
- * @param {*} timeout 
+ * @param {*} actors
+ * @param {*} timeout
  */
-const drawAll = (actors = ["mobile client", "router", "controller", "model", "mongoDB"], timeout=200) => {
-    draw = getCanvasInBrowser();
-    drawActors(actors);
-    drawArrows(actors, timeout, drawArrow);
-}
+const drawAll = (
+  actors = ["mobile client", "router", "controller", "model", "mongoDB"],
+  timeout = 200
+) => {
+  draw = getCanvasInBrowser();
+  drawActors(actors);
+  drawArrows(actors, timeout, drawArrow);
+};
 
 exports.drawArrows = drawArrows; //needed for testing, 'exports' causes "Uncaught ReferenceError: exports is not defined" that can be ignored
-exports.drawArrowsSync = drawArrowsSync;  //needed for testing, 'exports' causes "Uncaught ReferenceError: exports is not defined" that can be ignored
+exports.drawArrowsSync = drawArrowsSync; //needed for testing, 'exports' causes "Uncaught ReferenceError: exports is not defined" that can be ignored
