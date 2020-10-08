@@ -1,19 +1,21 @@
-
-
 /**
  * TODO: drawArrows uses recursion, but this time
  * with Promise, resolve() and setTimeout()
- * 
+ *
  * @param {*} actors the actors to be drawn
  * @param {*} timeout time for setTimeot
  * @param {*} drawArrow the callback for drawing a single array
  * @param {*} i the index of an array
  */
-async function drawArrows(actors, timeout, drawArrow, i=0) {
-
-};
-
-
+async function drawArrows(actors, timeout, drawArrow, i = 0) {
+  return new Promise(function (resolve) {
+    drawArrow(i, timeout, actors.length - 1);
+    if (i == 7) return;
+    setTimeout(function () {
+      resolve(drawArrows(actors, timeout, drawArrow, ++i));
+    }, timeout);
+  });
+}
 
 /**
  * DO NOT TOUCH THIS: drawArrowSync is the utility function for sync.test.js
@@ -23,22 +25,23 @@ async function drawArrows(actors, timeout, drawArrow, i=0) {
  * @param {*} drawArrow a callback to draw an arrow
  */
 const drawArrowsSync = (actors, drawArrow) => {
-    actors.forEach((actor, index)=>drawArrow(index, -1, actors.length - 1));
-}
-
-
+  actors.forEach((actor, index) => drawArrow(index, -1, actors.length - 1));
+};
 
 /**
  * DO NOT TOUCH: Draws all, both actors and arrows, this function is for a browser use.
  * Makes UML seq diagram based on actors
- * @param {*} actors 
- * @param {*} timeout 
+ * @param {*} actors
+ * @param {*} timeout
  */
-const drawAll = (actors = ["mobile client", "router", "controller", "model", "mongoDB"], timeout=200) => {
-    draw = getCanvasInBrowser();
-    drawActors(actors);
-    drawArrows(actors, timeout, drawArrow);
-}
+const drawAll = (
+  actors = ["mobile client", "router", "controller", "model", "mongoDB"],
+  timeout = 200
+) => {
+  draw = getCanvasInBrowser();
+  drawActors(actors);
+  drawArrows(actors, timeout, drawArrow);
+};
 
 exports.drawArrows = drawArrows; //needed for testing, 'exports' causes "Uncaught ReferenceError: exports is not defined" that can be ignored
-exports.drawArrowsSync = drawArrowsSync;  //needed for testing, 'exports' causes "Uncaught ReferenceError: exports is not defined" that can be ignored
+exports.drawArrowsSync = drawArrowsSync; //needed for testing, 'exports' causes "Uncaught ReferenceError: exports is not defined" that can be ignored
