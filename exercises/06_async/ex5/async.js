@@ -14,7 +14,8 @@ function drawArrows(actors, timeout, drawArrow, i = 0) {
     return new Promise(function (resolve) {
       drawArrow(i, timeout, actors.length - 1);
       setTimeout(function () {
-        resolve(drawArrows(actors, timeout, drawArrow));
+        resolve(drawArrows);
+        // resolve(drawArrows(actors, timeout, drawArrow));
       }, timeout);
     });
   }
