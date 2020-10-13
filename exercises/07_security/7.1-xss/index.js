@@ -24,7 +24,9 @@ http.createServer((request, response) => {
             </head>
             <body>
                 <p id="xss">Here be XSS!</p>
-                ${queryObject['addThisText']}
+                <script>
+                encodeURI(${queryObject['addThisText']});
+                </script>
             </body >
             </html >
     `);
