@@ -26,7 +26,7 @@ http.createServer((request, response) => {
                 <p id="xss">Here be XSS!</p>
                
                 
-                encodeURI(${queryObject['addThisText']});
+                ${encodeURI(queryObject['addThisText'])};
                 
             </body >
             </html >
