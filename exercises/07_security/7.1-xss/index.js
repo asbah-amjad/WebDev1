@@ -13,7 +13,7 @@ http.createServer((request, response) => {
     });
 
     const queryObject = url.parse(request.url, true).query;
-
+    // ${queryObject['addThisText']}
     // TODO: sanitize the the 'addThisText' query parameter user input so that injected scripts won't run
     response.write(
         `   <!doctype html>
@@ -24,9 +24,10 @@ http.createServer((request, response) => {
             </head>
             <body>
                 <p id="xss">Here be XSS!</p>
-                <script>
+               
+                
                 encodeURI(${queryObject['addThisText']});
-                </script>
+                
             </body >
             </html >
     `);
