@@ -19,8 +19,7 @@ http.createServer((req, res) => {
     // TODO: handle HEAD HTTP method, 
     // remember to add CORS headers to response
     if(req.method === "HEAD"){
-        //res.statusCode = 200;
-        res.writeHead(200);
+        res.statusCode = 200;
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader("Access-Control-Allow-Methods","HEAD, GET, POST");
         res.setHeader("Access-Control-Max-Age", "7200");
@@ -30,7 +29,7 @@ http.createServer((req, res) => {
     // remember to add CORS headers to response
     else if(req.method === "GET" || req.method === "POST"){
         //res.statusCode = 200;
-        res.writeHead(400);
+        res.writeHead(200);
        // res.statusMessage = "I was requested using CORS!";
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader("Access-Control-Allow-Methods","HEAD, GET, POST");
