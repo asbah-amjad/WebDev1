@@ -12,9 +12,9 @@ http.createServer((req, res) => {
     
     //if origin header is not set in req
     if(!req.headers['origin']){
-      res.statusCode = 400;
-      res.statusMessage = "Origin header not in the request";
-      return res.end();
+      res.writeHead(400);
+     // res.statusMessage = "Origin header not in the request";
+      return res.end("Origin header not in the request");
     }
     // TODO: handle HEAD HTTP method, 
     // remember to add CORS headers to response
