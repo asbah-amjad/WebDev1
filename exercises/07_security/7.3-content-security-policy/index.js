@@ -20,7 +20,7 @@ http.createServer((request, response) => {
                 // Policy header value as required
                 response.writeHead(200, {
                     //'Content-Security-Policy': 'default-src \'none\''
-                 'Content-Security-Policy': 'default-src \'self\', img-src https://creativecommons.org/ https://www.flickr.com/ https://live.staticflickr.com/'
+                 'Content-Security-Policy': 'script-src \'self\', img-src https://creativecommons.org/ https://www.flickr.com/ https://live.staticflickr.com/'
                 });
                 response.write(file);
             }
