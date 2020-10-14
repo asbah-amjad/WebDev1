@@ -19,7 +19,8 @@ http.createServer((req, res) => {
     // TODO: handle HEAD HTTP method, 
     // remember to add CORS headers to response
     if(req.method === "HEAD"){
-        res.statusCode = 200;
+        //res.statusCode = 200;
+        res.writeHead(200);
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader("Access-Control-Allow-Methods","HEAD, GET, POST");
         res.setHeader("Access-Control-Max-Age", "7200");
@@ -28,22 +29,24 @@ http.createServer((req, res) => {
     // TODO: handle GET and POST HTTP methods, 
     // remember to add CORS headers to response
     else if(req.method === "GET" || req.method === "POST"){
-        res.statusCode = 200;
-        res.statusMessage = "I was requested using CORS!";
+        //res.statusCode = 200;
+        res.writeHead(400);
+       // res.statusMessage = "I was requested using CORS!";
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader("Access-Control-Allow-Methods","HEAD, GET, POST");
         res.setHeader("Access-Control-Max-Age", "7200");
-        return res.end();
+        return res.end("I was requested using CORS!");
     }
     // TODO: handle HTTP methods that are not allowed, 
     // remember to add CORS headers to response
     else{
-        res.statusCode = 405;
-        res.statusMessage = "Request used a HTTP method which is not allowed.";
+        //res.statusCode = 405;
+        res.writeHead(405);
+        //res.statusMessage = "Request used a HTTP method which is not allowed.";
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader("Access-Control-Allow-Methods","HEAD, GET, POST");
         res.setHeader("Access-Control-Max-Age", "7200");
-        return res.end();
+        return res.end("Request used a HTTP method which is not allowed.");
     }
 
 }).listen(port);
