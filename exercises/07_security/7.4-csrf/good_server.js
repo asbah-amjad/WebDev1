@@ -206,7 +206,8 @@ const setCSRFtoken = () => {
      for (var i = 0; i < 10; i++){
         result += possible.charAt(Math.floor(Math.random() * possible.length));
      }
-     csrfTokens = [...result];
+     //csrfTokens = [...result];
+     csrfTokens.push(result);
      return result;
 }
 
