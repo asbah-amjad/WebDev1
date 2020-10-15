@@ -201,7 +201,7 @@ const checkUser = (userName, password) => {
  */
 const setCSRFtoken = () => {
      var result = "";
-     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
      for (var i = 0; i < 10; i++){
         result += possible.charAt(Math.floor(Math.random() * possible.length));
